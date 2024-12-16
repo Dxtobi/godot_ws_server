@@ -7,7 +7,7 @@ export const endGame = async (lobby) => {
 
     await Promise.all(
         lobby.players.map(async (player) => {
-            player.points += player.kills; // Example logic for points
+            player.points += player.kills;
             const dbPlayer = await Player.findOne({ phone: player.phone });
             if (dbPlayer) {
                 dbPlayer.kills += player.kills;
